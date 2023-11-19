@@ -1,6 +1,6 @@
 {
-  "id": "OpenProject_Connect",
-  "name": "OpenProject Connect",
+  "id": "OpenProject-Connect",
+  "name": "OpenProject-Connect",
   "version": "0.1.1",
   "minAppVersion": "0.9.7",
   "description": "Plugin to sync OpenProject work packages status in Obsidian notes",
