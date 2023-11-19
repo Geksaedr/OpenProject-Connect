@@ -1,48 +1,52 @@
-# Frontmatter Update Plugin for Obsidian
+# OpenProject-Connect plugin for Obsidian
 
-This Obsidian plugin automatically updates the 'Статус' field in the frontmatter of the current note based on data fetched from an OpenProject API. The plugin uses a specified server address and API key, which can be configured in the plugin settings.
+OpenProject-Connect is an Obsidian plugin designed to seamlessly sync the status of a work package from [OpenProject](https://www.openproject.org/) into your Obsidian notes. It allows you to link a specific OpenProject work package to a note via a unique ID and automatically updates a specified property field with the current status of this work package.
 
 ## Features
 
-- Fetches data from a specified OpenProject API endpoint.
-- Dynamically updates the 'Статус' field in the frontmatter of the opened note based on the API response.
-- Configurable server address and API key through plugin settings.
+- **Work Package Status Sync**: Automatically updates the status of a linked OpenProject work package in the note's properties.
+- **Customizable Frontmatter Fields**: Configurable properies fields for both the OpenProject ID and the status property.
+- **Per-Note Configuration**: Supports a unique OpenProject work package ID per note for targeted updates.
 
 ## Installation
 
-To install the plugin, follow these steps:
+To install the plugin:
 
-1. Download the latest release from the plugin's GitHub repository.
-2. Extract the plugin folder into your Obsidian vault's `.obsidian/plugins` directory.
-3. Reload Obsidian or restart the application.
-4. Go to `Settings > Community Plugins` and make sure `Community Plugins` is enabled.
-5. Find the `Frontmatter Update Plugin` in the list of available plugins and enable it.
+1. Download the latest release from the GitHub repository.
+2. Unzip the files into your Obsidian vault's `.obsidian/plugins` directory.
+3. In Obsidian, go to `Settings` -> `Community Plugins` and make sure `Safe Mode` is off.
+4. Find the OpenProject-Connect plugin in the list of community plugins and enable it.
 
 ## Usage
 
-Upon opening a note, the plugin checks for an 'OpenProjectID' in the note's frontmatter. If found, it makes a request to the configured OpenProject API endpoint and updates the 'Статус' field in the frontmatter based on the response.
+To use the plugin:
 
-### Configuring Plugin Settings
+1. Open the note you want to link with an OpenProject work package.
+2. Ensure the note's properties contains the field designated for the OpenProject ID (customizable in settings).
+3. The plugin will automatically fetch the current status of the work package and update the specified status field in the proprties upon opening the note.
 
-To configure the plugin settings:
+## Configuration
 
-1. Open Obsidian Settings.
-2. Navigate to `Plugin Options > Frontmatter Update Plugin`.
-3. Enter the desired server address and API key in the provided fields.
-4. The settings will be saved automatically.
+Configure the plugin via the settings tab in Obsidian:
 
-## Settings
+- **Server Address**: Set the URL of your OpenProject server (e.g., `http://10.10.30.10`).
+- **API Key**: Enter your OpenProject API key.
+- **OpenProject ID Field**: Specify the frontmatter field name that contains the OpenProject work package ID.
+- **Status Field**: Define the frontmatter field name where the work package status will be updated.
 
-- **Server Address**: The address of the OpenProject server (e.g., `http://192.168.88.126`).
-- **API Key**: The API key used for authentication with the OpenProject server.
 
-## License
+## OpenProject Configuration
 
-[Specify the license under which your plugin is distributed]
+To allow propper comunication you need to enable Cross-Origin Resource Sharing (CORS) in OpenProject:
 
-## Contributing
+- In administrators panel go to the API settings.
+- Enable CORS.
+- Add `app://obsidian.md` to the allowed origins and save changes.
 
-Contributions to the plugin are welcome. Please refer to the contributing guidelines in the GitHub repository for more information.
+## Limitations
+
+- The plugin currently supports one OpenProject work package ID per note.
+- Real-time syncing is triggered when a note is opened.
 
 ## Support
 
@@ -51,3 +55,8 @@ For support, questions, or feature requests, please open an issue in the GitHub 
 ## Acknowledgements
 
 Thanks to the Obsidian community and contributors who make projects like this possible.
+
+---
+
+This plugin is not affiliated with, directly maintained by, or endorsed by the developers of Obsidian or OpenProject.
+
