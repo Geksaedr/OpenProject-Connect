@@ -117,7 +117,7 @@ class FrontmatterUpdatePlugin extends Plugin {
             const statusName = data._embedded?.status?.name;
             if (!statusName) throw new Error('Status name not found');
 
-            // Update the 'Статус' field in the frontmatter
+            // Update the 'Status' field in the frontmatter
             const statusField = this.settings.statusField;
             await this.updateFrontmatter(file, statusField, statusName);
         } catch (error) {
